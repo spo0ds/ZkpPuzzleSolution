@@ -1,0 +1,29 @@
+{
+  "name": "zero-knowledge-puzzles",
+  "version": "1.0.0",
+  "description": "Zero Knowledge Puzzles by RareSkills",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Rareskills",
+  "license": "GNU GENERAL PUBLIC LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RareSkills/zero-knowledge-puzzles"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.5",
+    "chai": "^4.3.7",
+    "circom_tester": "^0.0.19",
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7",
+    "fs": "^0.0.1-security",
+    "mocha": "^10.2.0",
+    "snarkjs": "^0.6.10"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "ethereum-waffle": "^4.0.10"
+  }
+}
