@@ -7,9 +7,25 @@ pragma circom 2.1.4;
 // Declare 3 input signals `a`, `lowerbound` and `upperbound`.
 // If 'a' is within the range, output 1 , else output 0 using 'out'
 
+function check(a,b,c)
+{
+    if (a > b && a < c){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 
 template Range() {
     // your code here
+
+    signal input a;
+    signal input lowerbound;
+    signal input upperbound;
+    signal output out;
+
+    out <-- check(a, lowerbound, upperbound);
    
 }
 
