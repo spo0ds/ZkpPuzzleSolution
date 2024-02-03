@@ -73,11 +73,40 @@ template Sudoku () {
     3 === row4[3].out + row4[2].out + row4[1].out + row4[0].out; 
 
     // Write your solution from here.. Good Luck!
-    
-    
-   
+    signal col[4];
+    signal row[4];
+
+    component colinz[4];
+    component rowinz[4];
+
+    for (var p = 0; p < 4; p++) {
+        var sum = 0; 
+        for (var q = 0; q < 4; q++) {
+            sum += solution[q * 4 + p];
+        }
+        col[p] <== sum;
+        colinz[p] = IsEqual();
+        colinz[p].in[0] <== col[p];
+        colinz[p].in[1] <== 10;
+    }
+
+    for (var p = 0; p < 4; p++) {
+        var sum = 0;
+        for (var q = 0; q < 4; q++) {
+            sum += solution[p * 4 + q];
+        }
+        row[p] <== sum;
+        rowinz[p] = IsEqual();
+        rowinz[p].in[0] <== row[p];
+        rowinz[p].in[1] <== 10;
+    }
+
+    signal sum <== colinz[0].out + colinz[1].out + colinz[2].out + colinz[3].out + rowinz[0].out + rowinz[1].out + rowinz[2].out + rowinz[3].out;
+    component iseq = IsEqual();
+    iseq.in[0] <== sum;
+    iseq.in[1] <== 8;
+    out <== iseq.out; 
 }
 
 
 component main = Sudoku();
-
